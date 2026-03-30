@@ -1,4 +1,4 @@
-# prediction.py
+
 
 import yfinance as yf
 import pandas as pd
@@ -12,11 +12,10 @@ def predict_stock(stock, days):
     # STEP 1: Download stock data
     data = yf.download(stock, start="2023-01-01")
 
-    # Fix multi-index columns if present
+
     if isinstance(data.columns, pd.MultiIndex):
         data.columns = data.columns.droplevel(1)
 
-    # Keep only Close price
     data = data[['Close']].dropna()
 
     # STEP 2: Prepare data for training
@@ -36,7 +35,7 @@ def predict_stock(stock, days):
     # STEP 5: Create future dates
     future_dates = pd.date_range(start=data.index[-1], periods=days+1)[1:]
 
-    # Create prediction dataframe
+
     future_df = pd.DataFrame({
         'Date': future_dates,
         'Predicted': prediction
