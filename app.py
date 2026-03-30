@@ -22,7 +22,7 @@ days = st.number_input(
     value=30
 )
 
-# BUTTON ACTION
+
 
 if st.button("Predict"):
 
@@ -45,7 +45,7 @@ if st.button("Predict"):
         st.pyplot(fig1)
 
       
-        # SHOW FUTURE PREDICTIONS
+    
        
         st.subheader("🔮 Future Prediction")
 
@@ -59,7 +59,7 @@ if st.button("Predict"):
         st.pyplot(fig2)
 
       
-        # SHOW TABLE
+
        
         st.subheader("📌 Predicted Values")
         st.write(future_df)
